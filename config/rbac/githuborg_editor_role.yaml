@@ -1,0 +1,24 @@
+# permissions for end users to edit githuborgs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: githuborg-editor-role
+rules:
+- apiGroups:
+  - corp.weave.works
+  resources:
+  - githuborgs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - corp.weave.works
+  resources:
+  - githuborgs/status
+  verbs:
+  - get

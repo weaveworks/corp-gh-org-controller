@@ -1,0 +1,23 @@
+apiVersion: corp.weave.works/v1beta1
+kind: GitHubOrg
+metadata:
+  name: githuborg-sample
+spec:
+  adminLogins: []
+  orgId: fang-inc
+  orgName: phoban01
+  tokenSecretName: gh-secret
+  debug: true
+  repositories:
+  - name: yar
+    visibility: private
+    autoInit: true
+  teams:
+  - name: the-great-team
+    description: |-
+      A truly awesome team of GitHubers.
+    maintainers:
+    - phoban01
+  - name: the-ops-team
+    maintainers:
+    - phoban01

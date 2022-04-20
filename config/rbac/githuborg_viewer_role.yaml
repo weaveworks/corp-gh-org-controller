@@ -1,0 +1,20 @@
+# permissions for end users to view githuborgs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: githuborg-viewer-role
+rules:
+- apiGroups:
+  - corp.weave.works
+  resources:
+  - githuborgs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - corp.weave.works
+  resources:
+  - githuborgs/status
+  verbs:
+  - get
