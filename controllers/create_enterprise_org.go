@@ -13,7 +13,7 @@ var createOrgMutation struct {
 		Organization struct {
 			Login githubv4.String
 		}
-	} `graphql:"createOrganization(input: $input)"`
+	} `graphql:"createEnterpriseOrganization(input: $input)"`
 }
 
 // Not implemented as we need to understand the query which will return a list of existing
