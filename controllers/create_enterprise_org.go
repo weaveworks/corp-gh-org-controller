@@ -65,7 +65,7 @@ func createEnterpriseOrganization(
 
 	log.Info("creating organisation", "name", orgName, "id", orgID)
 
-	if err := client.Mutate(ctx, createOrgMutation, input, nil); err != nil {
+	if err := client.Mutate(ctx, &createOrgMutation, input, nil); err != nil {
 		log.Info("error code", "error", err.Error())
 		return err
 	}
