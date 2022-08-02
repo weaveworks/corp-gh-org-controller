@@ -79,7 +79,7 @@ func checkIfOrgExists(ctx context.Context, client *githubv4.Client, orgID string
 	var getOrg struct {
 		Organization struct {
 			ID githubv4.String
-		} `graphql:"Organization(login: $login)"`
+		} `graphql:"organization(login: $login)"`
 	}
 
 	variables := map[string]interface{}{
