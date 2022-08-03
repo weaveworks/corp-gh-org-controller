@@ -13,7 +13,7 @@ var createOrgMutation struct {
 		Organization struct {
 			Login githubv4.String
 		}
-	} `graphql:"createOrganization(input: $input)"`
+	} `graphql:"createEnterpriseOrganization(input: $input)"`
 }
 
 // Not implemented as we need to understand the query which will return a list of existing
@@ -65,7 +65,7 @@ func createEnterpriseOrganization(
 
 	log.Info("creating organisation", "name", orgName, "id", orgID)
 
-	if err := client.Mutate(ctx, createOrgMutation, input, nil); err != nil {
+	if err := client.Mutate(ctx, &createOrgMutation, input, nil); err != nil {
 		log.Info("error code", "error", err.Error())
 		return err
 	}
@@ -79,7 +79,7 @@ func checkIfOrgExists(ctx context.Context, client *githubv4.Client, orgID string
 	var getOrg struct {
 		Organization struct {
 			ID githubv4.String
-		} `graphql:"Organization(login: $login)"`
+		} `graphql:"organization(login: $login)"`
 	}
 
 	variables := map[string]interface{}{

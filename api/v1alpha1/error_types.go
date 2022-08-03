@@ -27,6 +27,8 @@ func CheckGitHubError(err error) error {
 		return GitHubAlreadyExistsError
 	case strings.Contains(s, "not found"):
 		return GitHubResourceNotFound
+	case strings.Contains(s, "not resolve"):
+		return GitHubResourceNotFound
 	default:
 		return err
 	}

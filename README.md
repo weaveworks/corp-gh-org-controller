@@ -14,6 +14,8 @@ Features:
 
 A Helm chart has been provided to deploy the controller. You must configure the `billingEmail` and `enterpriseName` via the Chart when deploying the controller. See `e2e/terraform/main.tf` for a sample Terraform configuration that uses the Helm chart to deploy the controller and a Terraform module to create an `GitHubOrg` Kubernetes resource.
 
+The helm chart has been released to oci://ghcr.io/weaveworks/charts/gh-org-controller
+
 ## Usage
 
 **Please note that this controller will not delete or remove any resources from GitHub.**
